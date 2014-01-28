@@ -80,7 +80,7 @@ Pinteresting::Application.configure do
 
   #required for heroku/devise
   # NOTE NEED TO UPDATE THIS WITH DOMAIN NAME
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'http://pbb-pinteresting.herokuapp.com/' }
 
   # Sets Paperclip to upload images to Amazon S3
   config.paperclip_defaults = {
