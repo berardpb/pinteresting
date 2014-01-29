@@ -82,6 +82,24 @@ Pinteresting::Application.configure do
   # NOTE NEED TO UPDATE THIS WITH DOMAIN NAME
   config.action_mailer.default_url_options = { :host => 'http://pbb-pinteresting.herokuapp.com/' }
 
+  # ActionMailer config
+  # Setup for production - deliveries, no errors raised
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
+
+  # SMTP setup for emails
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "example.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]
+  }
+
   # Sets Paperclip to upload images to Amazon S3
   config.paperclip_defaults = {
     :storage => :s3,
